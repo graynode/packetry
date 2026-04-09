@@ -15,6 +15,7 @@ use gtk::{
     ConstraintTarget,
     EventSequenceState,
     Expander,
+    Align,
     GestureClick,
     Label,
     Orientable,
@@ -71,6 +72,7 @@ impl ItemWidget {
                 .build());
         wrapper.imp().connector.replace(ItemConnector::new(None));
         wrapper.imp().expander.replace(Expander::new(None));
+        wrapper.imp().expander.borrow().set_valign(Align::Center);
         wrapper.append(&wrapper.imp().connector.borrow().clone());
         wrapper.append(&wrapper.imp().expander.borrow().clone());
         wrapper.append(&wrapper.imp().text_label.borrow().clone());
