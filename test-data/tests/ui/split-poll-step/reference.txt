@@ -1,4 +1,4 @@
-Opening file tests/split-poll/capture.pcap
+Opening file split-poll/capture.pcap
 Updating after 1 packets decoded
 At traffic-transactions row 0:
 + Starting low speed interrupt transaction on hub 12 port 2

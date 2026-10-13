@@ -68,6 +68,7 @@ fn check_replays() {
     let list_path = test_dir.join("tests.txt");
     let list_file = File::open(list_path)
         .expect("Failed to open list of replay tests");
+    println!("Running replay tests from {:?}", test_dir);
     let mut comparisons = Vec::new();
     for result in BufReader::new(list_file).lines() {
         let test_name = result
@@ -112,7 +113,8 @@ fn check_replays() {
                         Ok(())
                     }).unwrap();
                     if let Some(capture) = capture {
-                        let file = File::open(path)
+                        println!("Replaying capture from {:?}", path);
+                        let file = File::open(test_data::data_dir().join(path))
                             .expect("Failed to open pcap file");
                         let loader = PcapLoader::new(file)
                             .expect("Failed to create pcap loader");

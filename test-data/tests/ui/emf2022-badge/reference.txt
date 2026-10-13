@@ -1,4 +1,4 @@
-Opening file tests/emf2022-badge/capture.pcap
+Opening file emf2022-badge/capture.pcap
 Updating after 3710 packets decoded
 At traffic-hierarchical row 0:
 + 209 SOF groups

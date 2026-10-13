@@ -1,4 +1,4 @@
-{"Open":"tests/mouse/capture.pcap"}
+{"Open":"mouse/capture.pcap"}
 {"Update":1}
 {"SetExpanded":["traffic-hierarchical",0,true]}
 {"SetExpanded":["traffic-hierarchical",1,true]}

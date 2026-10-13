@@ -1,7 +1,7 @@
 use std::path::{Path, PathBuf};
 
 pub fn data_dir() -> &'static Path {
-    Path::new(concat!(env!("CARGO_MANIFEST_DIR"), "/test-data/tests"))
+    Path::new(concat!(env!("CARGO_MANIFEST_DIR"), "/tests"))
 }
 
 pub fn path(relative: &str) -> PathBuf {

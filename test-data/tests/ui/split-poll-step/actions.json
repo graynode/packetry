@@ -1,4 +1,4 @@
-{"Open":"tests/split-poll/capture.pcap"}
+{"Open":"split-poll/capture.pcap"}
 {"Update":1}
 {"Update":2}
 {"SetExpanded":["devices",0,true]}
