@@ -1458,7 +1458,7 @@ fn write_report(f: &mut Formatter<'_>, kind: &str, report: &impl Report)
     }
 
     for (position, field) in report.fields().iter().with_position() {
-        if position.is_first() || position.is_middle() {
+        if position.is_first() && !position.is_exactly_one() || position.is_middle() {
             write!(f, "├── ")?;
         }else {
             write!(f, "└── ")?;
@@ -1625,9 +1625,8 @@ mod tests {
 
     #[test]
     fn test_parse_hid() {
-        let test_dir = PathBuf::from("./tests/hid/");
-        let mut list_path = test_dir.clone();
-        list_path.push("tests.txt");
+        let test_dir = test_data::path("hid");
+        let list_path = test_dir.join("tests.txt");
         let list_file = File::open(list_path).unwrap();
         for test_name in BufReader::new(list_file).lines() {
             let mut test_path = test_dir.clone();

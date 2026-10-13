@@ -1,4 +1,4 @@
 [workspace]
-members = ["packetry-db", "packetry-core", "packetry-gui"]
+members = ["packetry-db", "packetry-core", "packetry-gui", "test-data"]
 
 resolver = "2"

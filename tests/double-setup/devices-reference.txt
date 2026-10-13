@@ -1,2 +1,0 @@
- Device 43: Unknown
-    No device descriptor

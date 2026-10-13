@@ -8,6 +8,9 @@ rust-version = "1.93"
 [build-dependencies]
 built = { version = "0.8.1", features = ["cargo-lock", "git2"] }
 
+[dev-dependencies]
+test-data            = { path = "../test-data" }
+
 [dependencies]
 anyhow               = "1"
 async-lock           = "3"

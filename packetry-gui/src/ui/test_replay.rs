@@ -2,7 +2,7 @@
 
 use std::fs::File;
 use std::io::{BufRead, BufReader};
-use std::path::PathBuf;
+use std::path::Path;
 
 use gtk::prelude::*;
 
@@ -64,23 +64,19 @@ fn run_test() {
 }
 
 fn check_replays() {
-    let test_dir = PathBuf::from("../tests/ui/");
-    let mut list_path = test_dir.clone();
-    list_path.push("tests.txt");
+    let test_dir = test_data::path("ui");
+    let list_path = test_dir.join("tests.txt");
     let list_file = File::open(list_path)
         .expect("Failed to open list of replay tests");
     let mut comparisons = Vec::new();
     for result in BufReader::new(list_file).lines() {
         let test_name = result
             .expect("Failed to read next replay test from file");
-        let mut test_path = test_dir.clone();
-        test_path.push(test_name);
-        let mut act_path = test_path.clone();
-        let mut ref_path = test_path.clone();
-        let mut out_path = test_path.clone();
-        act_path.push("actions.json");
-        ref_path.push("reference.txt");
-        out_path.push("output.txt");
+        let test_path = test_dir.join(test_name);
+        let act_path = test_path.join("actions.json");
+        let ref_path = test_path.join("reference.txt");
+        let out_path = test_path.join("output.txt");
+
         let action_file = File::open(act_path)
             .expect("Failed to open replay test action file");
         let output_file = File::options()

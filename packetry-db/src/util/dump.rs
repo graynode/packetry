@@ -128,6 +128,7 @@ impl<T> Dump for Option<T> where T: Dump {
 
 impl<T> Dump for Arc<T> where T: Dump {
     fn dump(&self, dest: &Path) -> Result<(), Error> {
+        println!("***------{:?}", dest);
         self.deref().dump(dest)
     }
 
@@ -150,6 +151,7 @@ impl<T> Dump for ArcSwapOption<T> where T: Dump {
 
 impl<T> Dump for ArcSwap<T> where T: Dump {
     fn dump(&self, dest: &Path) -> Result<(), Error> {
+        println!("**------{:?}", dest);
         self.load_full().dump(dest)
     }
 

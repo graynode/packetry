@@ -1904,6 +1904,7 @@ dependencies = [
  "serde",
  "serde_json",
  "tempfile",
+ "test-data",
  "winapi",
  "zip-extensions",
 ]
@@ -1938,6 +1939,7 @@ dependencies = [
  "portable_async_sleep",
  "serde",
  "serde_json",
+ "test-data",
  "thiserror 2.0.20",
  "usb-ids",
 ]
@@ -1959,6 +1961,7 @@ dependencies = [
  "rand 0.10.2",
  "rand_xorshift",
  "tempfile",
+ "test-data",
 ]
 
 [[package]]
@@ -2529,6 +2532,10 @@ dependencies = [
  "rustix",
  "windows-sys 0.61.2",
 ]
+
+[[package]]
+name = "test-data"
+version = "0.1.0"
 
 [[package]]
 name = "thiserror"

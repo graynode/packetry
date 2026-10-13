@@ -381,7 +381,7 @@ impl std::fmt::Display for EndpointType {
 #[derive(Copy, Clone, Debug, PartialEq)]
 // #[repr(C, packed)]
 pub struct EndpointDetails {
-    pub endpoint_type: EndpointType,
+    pub endpoint_type: usb::EndpointType,
     pub max_packet_size: Option<usize>,
 }
 
@@ -439,7 +439,7 @@ impl DeviceData {
                 })
             ),
             _ => match self.endpoint_details.load().get(addr) {
-                Some(details) => (details.endpoint_type, details.max_packet_size),
+                Some(details) => (Normal(details.endpoint_type), details.max_packet_size),
                 None => (Unidentified, None)
             }
         }
@@ -457,7 +457,7 @@ impl DeviceData {
                             let ep_desc = &endpoint.descriptor;
                             let ep_addr = ep_desc.endpoint_address;
                             let ep_details = EndpointDetails {
-                                endpoint_type: EndpointType::Normal(ep_desc.attributes.endpoint_type()),
+                                endpoint_type: ep_desc.attributes.endpoint_type(),
                                 max_packet_size: Some(ep_desc.max_packet_size as usize),
                             };
                             endpoint_details.set(
@@ -478,7 +478,7 @@ impl DeviceData {
         self.endpoint_details.maybe_update(|endpoint_details| {
             if endpoint_details.get(addr).is_none() {
                 let ep_details = EndpointDetails {
-                    endpoint_type: EndpointType::Normal(ep_type),
+                    endpoint_type: ep_type,
                     max_packet_size: None,
                 };
                 endpoint_details.set(addr, ep_details);
@@ -2139,6 +2139,7 @@ impl Dump for DeviceData {
 
 impl Dump for EndpointType {
     fn dump(&self, dest: &Path) -> Result<(), Error> {
+        println!("*------{:?}", dest);
         std::fs::create_dir_all(dest)?;
         std::fs::write(dest, format!("{:?}", self))?;
         Ok(())
@@ -2158,7 +2159,7 @@ impl Dump for EndpointType {
 impl Dump for EndpointDetails {
     fn dump(&self, dest: &Path) -> Result<(), Error> {
         std::fs::create_dir_all(dest)?;
-
+        println!("****------{:?}", dest);
         self.endpoint_type.dump(&dest.join("endpoint_type"))?;
         self.max_packet_size.dump(&dest.join("max_packet_size"))?;
         Ok(())

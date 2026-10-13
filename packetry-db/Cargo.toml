@@ -20,3 +20,4 @@ tempfile   = "3"
 bytemuck_derive = "1.5"
 rand            = "0.10"
 rand_xorshift   = "0.5"
+test-data       = { path = "../test-data" }

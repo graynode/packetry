@@ -1258,13 +1258,11 @@ mod tests {
 
     #[test]
     fn test_captures() {
-        let test_dir = PathBuf::from("./tests/");
-        let mut list_path = test_dir.clone();
-        list_path.push("tests.txt");
+        let list_path = test_data::path("tests.txt");
         let list_file = File::open(list_path).unwrap();
         let mode = TrafficViewMode::Hierarchical;
         for test_name in BufReader::new(list_file).lines() {
-            let test_path = test_dir.join(test_name.unwrap());
+            let test_path = test_data::path(&test_name.unwrap());
             let traf_ref_path = test_path.join("reference.txt");
             let traf_out_path = test_path.join("output.txt");
             let dev_ref_path = test_path.join("devices-reference.txt");

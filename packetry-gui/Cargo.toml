@@ -52,6 +52,7 @@ packetry-core = { path = "../packetry-core" }
 [dev-dependencies]
 serde_json = "1.0.113"
 libfuzzer-sys = "0.4.7"
+test-data = { path = "../test-data" }
 
 [target.'cfg(target_os = "macos")'.dev-dependencies]
 procspawn = "1.0.0"
