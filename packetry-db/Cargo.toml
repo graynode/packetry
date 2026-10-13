@@ -1,8 +1,17 @@
 [package]
 name = "packetry-db"
-version = "0.1.0"
+version = "0.5.0"
+authors = ["Great Scott Gadgets <dev@greatscottgadgets.com>"]
+license = "BSD-3-Clause"
+description = "A fast, intuitive USB 2.0 protocol analysis application for use with Cynthion."
+categories = ["visualization"]
+keywords = ["cynthion", "luna", "usb"]
+homepage = "https://github.com/greatscottgadgets/packetry"
+repository = "https://github.com/greatscottgadgets/packetry"
+documentation = "https://packetry.readthedocs.io"
 edition = "2024"
 rust-version = "1.93"
+build = "src/build.rs"
 
 [dependencies]
 anyhow     = "1"

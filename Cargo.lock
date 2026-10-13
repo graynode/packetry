@@ -1911,7 +1911,7 @@ dependencies = [
 
 [[package]]
 name = "packetry-core"
-version = "0.1.0"
+version = "0.5.0"
 dependencies = [
  "anyhow",
  "arc-swap",
@@ -1946,7 +1946,7 @@ dependencies = [
 
 [[package]]
 name = "packetry-db"
-version = "0.1.0"
+version = "0.5.0"
 dependencies = [
  "anyhow",
  "arc-swap",
