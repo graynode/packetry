@@ -11,7 +11,6 @@ repository = "https://github.com/greatscottgadgets/packetry"
 documentation = "https://packetry.readthedocs.io"
 edition = "2024"
 rust-version = "1.93"
-build = "src/build.rs"
 
 [dependencies]
 anyhow     = "1"
